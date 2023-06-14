@@ -1,5 +1,5 @@
 import api from './../utils/api.js'
-import Cards from './Cards.jsx'
+import Card from './Card.jsx'
 import { useEffect, useState } from 'react';
 
 function Main({onEditProfile, onAddPlace, onEditAvatar, onCardClick}) {
@@ -38,7 +38,7 @@ function Main({onEditProfile, onAddPlace, onEditAvatar, onCardClick}) {
         <section className="foto" aria-label="фотогалерея">
             <ul className="cards">
               {cards.map((card) =>     
-                  <Cards card={card} key={card._id}  onCardClick={onCardClick} />
+                  <Card card={card} key={card._id}  onCardClick={onCardClick} />
               )}
             </ul>
         </section>

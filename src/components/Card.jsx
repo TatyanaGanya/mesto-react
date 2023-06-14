@@ -1,6 +1,6 @@
 
 
-function Cards ({card, onCardClick}) {
+function Card ({card, onCardClick}) {
 
     return (
         <li className="card" >
@@ -14,4 +14,4 @@ function Cards ({card, onCardClick}) {
         </li>
     )}
 
-export default Cards;
+export default Card;
