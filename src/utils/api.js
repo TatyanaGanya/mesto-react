@@ -24,15 +24,6 @@ class Api {
     });
   }
 
-  //загрузка профиля с сервера
-  getInitialInfo() {
-    return this._request(`${this._url}/users/me`, {
-      headers: {
-        authorization: this._authorization,
-      },
-    });
-  }
-
   //загрузка карточки с сервера
   getInitialCards() {
     return this._request(`${this._url}/cards`, {
@@ -86,6 +77,7 @@ class Api {
       },
     });
   }
+
   deleteLike(data) {
     return this._request(`${this._url}/cards/${data}/likes`, {
       method: "DELETE",
@@ -94,6 +86,7 @@ class Api {
       },
     });
   }
+
   deleteCard(data) {
     return this._request(`${this._url}/cards/${data}`, {
       method: "DELETE",
