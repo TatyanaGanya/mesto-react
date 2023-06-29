@@ -27,6 +27,7 @@ function handleChange(e) {
         setValues(data)
         setError({})
         setIsInputValid({})
+        setIsValid(false)
     }
 
    const setValue = useCallback((name, value) => {

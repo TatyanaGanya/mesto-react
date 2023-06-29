@@ -6,7 +6,7 @@ function PopupWithForm({
   onClose,
   children,
   onSubmit,
-  isValid = true
+  isValid=true
 }) 
 {
   return (
@@ -23,7 +23,6 @@ function PopupWithForm({
           {title}
         </h2>
         <form
-          noValidate
           className="popup__content"
           name={`${name}_form`}
           onSubmit={onSubmit}

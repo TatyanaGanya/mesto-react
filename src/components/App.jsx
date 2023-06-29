@@ -17,10 +17,8 @@ function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState({});
   const [imagePopup, setImagePopup] = useState(false);
-  //cardDelete
   const [cardDelete, setCardDelete] = useState(false);
   const [deleteCardId, setDeleteCardId] = useState("");
-  //Context
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
 
@@ -33,11 +31,10 @@ function App() {
   }, []);
 
   // esc (i dont now)
-  const closePopupByEsc = useCallback(
+  const handleCloseEsc = useCallback(
     (evt) => {
-      if (evt.key === "Esc") {
+      if (evt.key === "Escape") {
         setIsEditCloseAllPopups();
-        document.removeEventListener("keydoun", closePopupByEsc);
       }
     },
     [setIsEditCloseAllPopups]
@@ -45,12 +42,12 @@ function App() {
 
   const closeAllPopups = useCallback(() => {
     setIsEditCloseAllPopups();
-    document.removeEventListener("keydoun", closePopupByEsc);
-  }, [setIsEditCloseAllPopups, closePopupByEsc]);
+    document.removeEventListener("keydown", handleCloseEsc);
+  }, [setIsEditCloseAllPopups, handleCloseEsc]);
 
   //esc
   function setEvenListnersForDocument() {
-    document.addEventListener("keydoun", closePopupByEsc);
+    document.addEventListener("keydown", handleCloseEsc);
   }
 
   //////////////////////////////////////////
@@ -206,7 +203,6 @@ function App() {
           onAddPlace={handleUpdateAdd}
         />
 
-        {/* удаление */}
         <PopupWithForm
           name="delete"
           title="Вы уверены?"
